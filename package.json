@@ -1,0 +1,23 @@
+{
+  "name": "visa-api",
+  "version": "0.0.1",
+  "description": "visa api",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \\\"no tests \\\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mattmcfad/visa-api.git"
+  },
+  "keywords": [
+    "node",
+    "mongo"
+  ],
+  "author": "@mattmcfad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattmcfad/visa-api/issues"
+  },
+  "homepage": "https://github.com/mattmcfad/visa-api#readme"
+}
