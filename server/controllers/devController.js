@@ -16,7 +16,7 @@ controller.get = function(req, res) {
     }
 
     console.log(green.bold(`Found users: ${devs}`));
-    res.status(200).send(`yeah fam ${devs}`);
+    res.status(200).json(devs);
   });
 };
 
@@ -36,12 +36,13 @@ controller.post = function(req, res) {
 
   dev.save((err, newDev) => {
     if (err) {
-      console.error(red.bold(`${err} sorry!`));
-      res.status(500).send(`${err} sorry!`);
+      console.error(red.bold(`Mongo Error: ${err}`));
+      res.status(500).send(`Mongo Error: ${err}`);
     }
 
-    console.log(green.bold(`we saved him fam: ${newDev}`));
-    res.status(200).send(`we saved dev fam: ${newDev}`);
+    console.log(green.bold(`Created Dev: ${newDev}`));
+
+    res.status(200).json(newDev);
   })
 
 };

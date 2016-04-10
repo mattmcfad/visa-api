@@ -1,8 +1,9 @@
 'use strict';
 
+const mongoose = require('mongoose');
 const db = require('../db');
 
-const devSchema = db.Schema({
+const devSchema = mongoose.Schema({
   name: String,
   age: Number,
   lang: String,
