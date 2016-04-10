@@ -26,15 +26,14 @@ const options = {
       connectTimeoutMS : 30000
     }
   },
+  promiseLibrary: require('bluebird'),
   user: key.user,
   pass: key.pw
 };
 
 const mongodbUri = key.url;
 
-mongoose.connect(mongodbUri, options);
-
-const conn = mongoose.connection;
+const conn = mongoose.createConnection(mongodbUri, options);
 
 conn.on('error', console.error.bind(console, 'connection error:'));
 
