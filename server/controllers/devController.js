@@ -8,15 +8,15 @@ export const get = function (req, res) {
 
   Dev
     .find()
+    .select('age name')
     .sort('age')
     .exec()
-    .then((devs, err) => {
-      if (err) {
-        console.error(red.bold(`Error: ${err}`));
-        res.status(500);
-      }
-
+    .then(devs => {
       res.status(200).json(devs);
+    })
+    .catch(err => {
+      console.error(red.bold(`Error: ${err}`));
+      res.status(500);
     });
 };
 
@@ -31,13 +31,12 @@ export const post = function(req, res) {
 
   dev
     .save()
-    .then((newDev, err) => {
-      if (err) {
-        console.error(red.bold(`Mongo Error: ${err}`));
-        res.status(500).send(`Mongo Error: ${err}`);
-      }
-
+    .then(newDev => {
       console.log(green.bold(`Created Dev: ${newDev}`));
       res.status(200).json(newDev);
+    })
+    .catch(err => {
+      console.error(red.bold(`Mongo Error: ${err}`));
+      res.status(500).send(`Mongo Error: ${err}`);
     });
 };
