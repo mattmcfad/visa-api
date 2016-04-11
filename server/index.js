@@ -4,11 +4,13 @@ const express = require('express');
 
 const app = express();
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 const port = process.env.PORT || 8000;
 
 import { green, red } from 'colors/safe';
 
 app.use(bodyParser.json());
+app.use(morgan('dev'));
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');

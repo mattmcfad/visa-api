@@ -33,7 +33,7 @@ export const post = function(req, res) {
     .save()
     .then(newDev => {
       console.log(green.bold(`Created Dev: ${newDev}`));
-      res.status(200).json(newDev);
+      res.status(201).json(newDev);
     })
     .catch(err => {
       console.error(red.bold(`Mongo Error: ${err}`));
